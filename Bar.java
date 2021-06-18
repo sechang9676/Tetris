@@ -10,7 +10,7 @@ public class Bar extends Piece{
 		c[2] = 1;
 		r[2] = 0;
 		c[3] = 2;
-		r[3] = 0;
+		r[3] = 0;//
 
 	}
 
