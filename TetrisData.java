@@ -3,16 +3,13 @@ package tetris;
 public class TetrisData {
 	public static final int ROW = 20;
 	public static final int COL = 10;
-	
-	private int data[][]; // ROW x COL ÀÇ ¹è¿­
-	private int line; // Áö¿î ÁÙ ¼ö
-	
-	public int getScore() {
-		return line;
-	}
-	
+
+	private int data[][]; // ROW x COL ì˜ ë°°ì—´
+	private int line; // ì§€ìš´ ì¤„ ìˆ˜
+
 	public TetrisData() {
 		data = new int[ROW][COL];
+		
 	}
 
 	public int getAt(int x, int y) {
@@ -41,7 +38,6 @@ public class TetrisData {
 
 			if (done) {
 				line++;
-				System.out.println(line);
 				for (int x = i; x > 0; x--) {
 					for (int y = 0; y < COL; y++) {
 						data[x][y] = data[x - 1][y];
@@ -57,15 +53,18 @@ public class TetrisData {
 		}
 	}
 
-	public void clear() { // data ¹è¿­ ÃÊ±âÈ­
+	public void clear() { // data ë°°ì—´ ì´ˆê¸°í™”
 		for (int i = 0; i < ROW; i++) {
 			for (int k = 0; k < COL; k++) {
 				data[i][k] = 0;
 			}
 		}
 	}
+	public void resetScore() {
+		line = 0;
+	}
 
-	public void dump() { // data ¹è¿­ ³»¿ë Ãâ·Â
+	public void dump() { // data ë°°ì—´ ë‚´ìš© ì¶œë ¥
 		for (int i = 0; i < ROW; i++) {
 			for (int k = 0; k < COL; k++) {
 				System.out.print(data[i][k] + " ");
