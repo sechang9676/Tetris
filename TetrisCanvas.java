@@ -73,8 +73,8 @@ public class TetrisCanvas extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void stop() {
-		data.resetScore();
-		scoreText.setText("score: "+0);
+//		data.resetScore();
+//		scoreText.setText("score: "+0);
 		stop = true;
 		current = null;
 		nextBlock = null;
@@ -202,8 +202,9 @@ public class TetrisCanvas extends JPanel implements Runnable, KeyListener {
 						makeNew = true;
 						if (current.copy()) {
 							stop();
-							int score = data.getLine() * 175 * level;
 							JOptionPane.showMessageDialog(this, "게임끝\n점수 : " + score);
+							data.resetScore();
+							scoreText.setText("score: "+0);
 						}
 						current = null;
 					}
@@ -245,7 +246,6 @@ public class TetrisCanvas extends JPanel implements Runnable, KeyListener {
 				makeNew = true;
 				if (current.copy()) {
 					stop();
-					int score = data.getLine() * 175 * level;
 					JOptionPane.showMessageDialog(this, "게임끝\n점수 : " + score);
 				}
 			}
